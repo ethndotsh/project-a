@@ -14,16 +14,14 @@ export interface EthanGPTMessage {
 // loading placeholder animation for the chat line
 export const LoadingChatLine = () => (
   <Card className="max-w-xl">
-    <div className="flex animate-pulse">
+    <div className="flex">
       <div className="flex flex-grow space-x-3">
         <div className="min-w-0 flex-1">
           <p className="font-large text-xxl text-gray-900">
-            <a href="#" className="hover:underline">
-              EthanGPT
-            </a>
+            <p>EthanGPT</p>
           </p>
-          <div className="space-y-4 pt-4">
-            <div className="grid grid-cols-3 gap-4">
+          <div className="animate-pulse space-y-3  pt-4">
+            <div className="grid grid-cols-3 gap-3">
               <div className="col-span-2 h-2 rounded bg-zinc-500"></div>
               <div className="col-span-1 h-2 rounded bg-zinc-500"></div>
             </div>
@@ -65,9 +63,7 @@ export function ChatLine({ role = "assistant", content }: EthanGPTMessage) {
             <div className="flex space-x-3">
               <div className="flex-1 gap-4">
                 <p className="font-large text-gray-900">
-                  <a href="#" className="hover:underline">
-                    {role == "assistant" ? "EthanGPT" : "You"}
-                  </a>
+                  <p>{role == "assistant" ? "EthanGPT" : "You"}</p>
                 </p>
                 <p className={"font-semibold"}>{formattedMessage}</p>
               </div>
