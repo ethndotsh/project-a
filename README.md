@@ -1,3 +1,3 @@
 # EthanGPT
 
-Very cool
+Very cool.
