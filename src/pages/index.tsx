@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import {
   type EthanGPTMessage,
   ChatLine,
@@ -98,9 +98,13 @@ export function Chat() {
         { role: "assistant", content: lastMessage } as EthanGPTMessage,
       ]);
 
+      dummy.current?.scrollIntoView({ behavior: "smooth" });
+
       setLoading(false);
     }
   };
+
+  const dummy = useRef<HTMLDivElement>(null);
 
   return (
     <div className="lg:p-6">
@@ -116,6 +120,7 @@ export function Chat() {
         </div>
         {loading && <LoadingChatLine />}
       </div>
+      <div ref={dummy} />
 
       <div className="fixed bottom-0 left-0 w-full border-t bg-white py-6">
         <InputMessage
