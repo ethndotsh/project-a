@@ -15,8 +15,6 @@ export const config = {
 const handler = async (req: Request): Promise<Response> => {
   const body = await req.json();
 
-  body.messa;
-
   const messages: EthanGPTMessage[] = [
     {
       role: "system",

@@ -72,8 +72,6 @@ export async function OpenAIStream(payload: OpenAIStreamPayload) {
         }
       }
 
-      // stream response (SSE) from OpenAI may be fragmented into multiple chunks
-      // this ensures we properly read chunks and invoke an event for each SSE event stream
       const parser = createParser(onParse);
       for await (const chunk of res.body as any) {
         parser.feed(decoder.decode(chunk));
